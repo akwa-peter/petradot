@@ -96,7 +96,6 @@ const Hero = () => {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
 
-      {/* Animated floating shapes */}
       {floatingShapes.map((shape, index) => (
         <motion.div
           key={index}
