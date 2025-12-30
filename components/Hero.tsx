@@ -1,16 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import {
-  ArrowRight,
-  CheckCircle,
-  Sparkles,
-  Shield,
-  Zap,
-  Cpu,
-  Code,
-  Server,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, Shield } from "lucide-react";
 import { useEffect } from "react";
 
 const Hero = () => {
@@ -25,37 +16,6 @@ const Hero = () => {
     };
     sequence();
   }, [controls]);
-
-  const features = [
-    {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Scalable Architecture",
-      desc: "Built to grow with your user base",
-      color: "text-yellow-400",
-      bgColor: "bg-yellow-900/20",
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Enterprise Security",
-      desc: "Bank-level encryption & compliance",
-      color: "text-green-400",
-      bgColor: "bg-green-900/20",
-    },
-    {
-      icon: <Cpu className="h-6 w-6" />,
-      title: "Blazing Fast",
-      desc: "Optimized for maximum performance",
-      color: "text-blue-400",
-      bgColor: "bg-blue-900/20",
-    },
-    {
-      icon: <Code className="h-6 w-6" />,
-      title: "Cross-Platform",
-      desc: "iOS, Android & Web from single codebase",
-      color: "text-purple-400",
-      bgColor: "bg-purple-900/20",
-    },
-  ];
 
   const floatingShapes = [
     {
@@ -91,7 +51,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-gray-900"
+      className="relative pt-28 pb-20 md:pt-45 md:pb-32 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-gray-900"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
@@ -556,46 +516,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Features Grid with staggered animations */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 + index * 0.1 }}
-              whileHover={{
-                y: -10,
-                scale: 1.05,
-                borderColor: "#3b82f6",
-                boxShadow: "0 10px 30px rgba(59, 130, 246, 0.2)",
-              }}
-              className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300"
-            >
-              <motion.div
-                className={`p-3 rounded-lg ${feature.bgColor} inline-block mb-4`}
-                animate={{ rotate: [0, 5, 0, -5, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  delay: index * 0.5,
-                }}
-              >
-                <div className={feature.color}>{feature.icon}</div>
-              </motion.div>
-              <h3 className="font-semibold text-white text-lg">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400 text-sm mt-2">{feature.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

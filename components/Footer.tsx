@@ -22,7 +22,7 @@ const Footer = () => {
                   className="text-2xl font-bold text-blue-400 hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/ptd-1.png"
+                    src="/logo.png"
                     alt="PTD Logo"
                     width={160}
                     height={160}
