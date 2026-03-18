@@ -59,7 +59,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 leading-tight tracking-tight"
+                  className="text-4xl md:text-4xl lg:text-4xl xl:text-7xl font-bold text-slate-900 leading-tight tracking-tight"
                 >
                   <motion.span
                     className="block"
