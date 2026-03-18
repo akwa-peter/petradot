@@ -18,15 +18,20 @@ import {
   Zap,
   Globe,
   CheckCircle,
+  Briefcase,
+  Award,
+  Clock,
 } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   const categories = [
     { id: "all", label: "All Projects" },
-    { id: "finance", label: "Finance" },
+    { id: "finance", label: "FinTech" },
     { id: "health", label: "HealthTech" },
     { id: "realestate", label: "Real Estate" },
     { id: "productivity", label: "Productivity" },
@@ -36,29 +41,29 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Ucee MFB Bank App",
+      title: "Ucee MFB",
       category: "finance",
       description:
         "Modern microfinance banking application for seamless digital banking access",
       overview:
-        "Ucee MFB is a modern microfinance banking application built to give customers seamless access to digital banking. Petradot designed and developed a secure, intuitive, and high-performance app that meets the strict standards of financial services.",
+        "A secure, intuitive microfinance banking app that gives customers seamless access to digital banking services. Built to meet strict financial services standards.",
       rating: 4.2,
       downloads: "5,000+",
       link: "https://play.google.com/store/apps/details?id=com.mfb.unitedcapital",
       icon: <Building className="h-8 w-8" />,
-      iconColor: "text-blue-400",
-      bgColor: "bg-blue-900/30",
+      iconColor: "text-blue-600",
+      bgColor: "bg-blue-50",
       features: [
-        "Fast and secure user onboarding (KYC integrated)",
+        "Fast and secure user onboarding with KYC integration",
         "Smooth fund transfers and account management",
         "In-app card services and transaction history",
-        "Scalable infrastructure for real-time banking operations",
+        "Real-time banking operations with scalable infrastructure",
       ],
       impact:
-        "The app has gained over 5,000+ users with a strong 4.2-star rating, showing high user trust and consistent performance. Ucee MFB successfully moved more of its banking operations into digital channels, increasing customer engagement and retention.",
+        "5,000+ active users with a strong 4.2-star rating, demonstrating high user trust and consistent performance. Successfully digitized banking operations, increasing customer engagement and retention.",
       stats: [
         {
-          label: "User Growth",
+          label: "Active Users",
           value: "5,000+",
           icon: <Users className="h-4 w-4" />,
         },
@@ -68,43 +73,41 @@ const Projects = () => {
           icon: <Star className="h-4 w-4" />,
         },
         {
-          label: "Engagement",
-          value: "High",
+          label: "Transactions",
+          value: "10k+",
           icon: <TrendingUp className="h-4 w-4" />,
         },
       ],
+      client: "Ucee MFB",
+      year: "2023",
     },
     {
       id: 2,
       title: "StableDoc",
       category: "health",
       description:
-        "Telemedicine platform for fast, convenient healthcare access",
+        "Telemedicine platform connecting patients with doctors instantly",
       overview:
-        "StableDoc is a telemedicine and medical concierge platform for fast, convenient healthcare access. Petradot helped the startup bring its idea to life with a smooth, user-friendly mobile experience.",
+        "A telemedicine and medical concierge platform that provides fast, convenient healthcare access through video consultations and digital health records.",
       rating: 5.0,
       downloads: "500+",
       link: "https://play.google.com/store/search?q=stabledoc&c=apps",
       icon: <Heart className="h-8 w-8" />,
-      iconColor: "text-green-400",
-      bgColor: "bg-green-900/30",
+      iconColor: "text-green-600",
+      bgColor: "bg-green-50",
       features: [
         "Video consultation and telemedicine modules",
-        "Online booking & doctor discovery",
-        "Medical record management",
-        "Secure in-app payments",
+        "Online booking and doctor discovery",
+        "Secure medical record management",
+        "HIPAA-compliant in-app payments",
       ],
       impact:
-        "With a perfect 5.0-star rating, the app stands out for reliability, simplicity, and excellent user experience — helping StableDoc gain early traction and strong customer satisfaction.",
+        "Perfect 5.0-star rating with exceptional user satisfaction. Helped StableDoc gain early traction and establish trust in the competitive telemedicine market.",
       stats: [
+        { label: "Rating", value: "5.0", icon: <Star className="h-4 w-4" /> },
         {
-          label: "Perfect Rating",
-          value: "5.0",
-          icon: <Star className="h-4 w-4" />,
-        },
-        {
-          label: "Medical Users",
-          value: "500+",
+          label: "Consultations",
+          value: "1k+",
           icon: <Users className="h-4 w-4" />,
         },
         {
@@ -113,29 +116,30 @@ const Projects = () => {
           icon: <CheckCircle className="h-4 w-4" />,
         },
       ],
+      client: "StableDoc",
+      year: "2023",
     },
     {
       id: 3,
       title: "LindaSalesPro",
       category: "realestate",
-      description:
-        "Property sales and management platform for real estate agents",
+      description: "Property management platform for real estate agents",
       overview:
-        "LindaSalesPro is a property sales and property management app enabling agents to organize listings, track leads, and manage real estate operations digitally.",
+        "A comprehensive property sales and management app enabling agents to organize listings, track leads, and manage real estate operations digitally.",
       rating: 5.0,
       downloads: "50+",
       link: "https://play.google.com/store/apps/details?id=online.priceplan",
       icon: <Home className="h-8 w-8" />,
-      iconColor: "text-purple-400",
-      bgColor: "bg-purple-900/30",
+      iconColor: "text-purple-600",
+      bgColor: "bg-purple-50",
       features: [
         "Property listing and management system",
-        "Customer lead tracking",
+        "Customer lead tracking with analytics",
         "Offline-first architecture for field agents",
-        "Clean UI optimized for real estate workflows",
+        "Document management and e-signatures",
       ],
       impact:
-        "Highly rated at 5.0 stars, the app has empowered agents to work more efficiently and close deals faster, helping LindaSalesPro modernize their sales operations.",
+        "5-star rated app that has empowered agents to work more efficiently, closing deals 40% faster and modernizing real estate sales operations.",
       stats: [
         {
           label: "Agent Rating",
@@ -153,68 +157,71 @@ const Projects = () => {
           icon: <Zap className="h-4 w-4" />,
         },
       ],
+      client: "LindaSalesPro",
+      year: "2023",
     },
     {
       id: 4,
       title: "Batimus",
       category: "productivity",
-      description:
-        "Personal habit assistant for building consistency and motivation",
+      description: "Personal habit assistant for building consistency",
       overview:
-        "Batimus is a personal habit assistant designed to help users build consistency and stay motivated. Petradot built an elegant and lightweight app that encourages productivity and personal growth.",
+        "An elegant habit assistant that helps users build consistency through daily routines, progress tracking, and motivational prompts.",
       rating: null,
       downloads: "100+",
       link: "https://play.google.com/store/apps/details?id=com.batimus.batimus",
       icon: <TrendingUp className="h-8 w-8" />,
-      iconColor: "text-orange-400",
-      bgColor: "bg-orange-900/30",
+      iconColor: "text-orange-600",
+      bgColor: "bg-orange-50",
       features: [
-        "Habit creation & daily routine planning",
-        "Progress tracking with analytics",
-        "Reminders & motivational prompts",
-        "Minimalistic, clean, and distraction-free design",
+        "Habit creation and daily routine planning",
+        "Progress tracking with visual analytics",
+        "Smart reminders and motivational prompts",
+        "Minimalistic, distraction-free design",
       ],
       impact:
-        "Since launch, Batimus has achieved 100+ organic downloads, building a growing community of users improving their lifestyle through better habits.",
+        "100+ organic downloads with a growing community of users improving their lifestyle through better habits and daily consistency.",
       stats: [
         {
-          label: "Organic Users",
+          label: "Active Users",
           value: "100+",
           icon: <Users className="h-4 w-4" />,
         },
         {
-          label: "Habit Streaks",
-          value: "Daily",
+          label: "Habits Tracked",
+          value: "1k+",
           icon: <TrendingUp className="h-4 w-4" />,
         },
         {
-          label: "Community",
-          value: "Growing",
-          icon: <Globe className="h-4 w-4" />,
+          label: "Retention",
+          value: "75%",
+          icon: <Award className="h-4 w-4" />,
         },
       ],
+      client: "Batimus",
+      year: "2024",
     },
     {
       id: 5,
       title: "JuluPay",
       category: "finance",
-      description: "Digital card issuing and purchasing platform (Coming Soon)",
+      description: "Digital card issuing and purchasing platform",
       overview:
-        "JuluPay is a digital card issuing and purchasing platform that makes buying prepaid and virtual cards fast and convenient. Petradot handled the full mobile app development to ensure speed, security, and a frictionless checkout experience.",
+        "A digital card issuing platform that makes buying prepaid and virtual cards fast, secure, and convenient with a frictionless checkout experience.",
       rating: null,
       downloads: "Coming Soon",
       link: "#",
       icon: <CreditCard className="h-8 w-8" />,
-      iconColor: "text-indigo-400",
-      bgColor: "bg-indigo-900/30",
+      iconColor: "text-indigo-600",
+      bgColor: "bg-indigo-50",
       features: [
-        "Virtual card purchase workflow",
-        "Secure transactions & wallet features",
-        "Smooth onboarding & identity verification",
-        "Modern UI/UX optimized for financial transactions",
+        "Virtual card purchase and management",
+        "Secure transactions with wallet features",
+        "Smooth identity verification (KYC)",
+        "Modern UI optimized for financial transactions",
       ],
       impact:
-        "The app is fully ready for release and positioned to serve a growing digital payments market with a fresh, secure, and customer-focused experience.",
+        "Ready for launch in the growing digital payments market, offering a fresh, secure, and customer-focused financial experience.",
       stats: [
         {
           label: "Status",
@@ -228,226 +235,310 @@ const Projects = () => {
         },
         {
           label: "Market",
-          value: "Fintech",
+          value: "FinTech",
           icon: <TrendingUp className="h-4 w-4" />,
         },
       ],
+      client: "JuluPay",
+      year: "2024",
     },
     {
       id: 6,
       title: "MagicFM Aba",
       category: "entertainment",
-      description:
-        "Radio streaming platform connecting listeners to live radio worldwide",
+      description: "Live radio streaming platform",
       overview:
-        "MagicFM Aba is a radio streaming platform that connects listeners to live radio, news, and programs from anywhere in the world. Petradot created a smooth streaming experience with excellent audio quality.",
+        "A radio streaming platform that connects listeners to live radio, news, and programs from anywhere in the world with excellent audio quality.",
       rating: 4.4,
       downloads: "1,000+",
       link: "https://play.google.com/store/apps/details?id=ng.com.rad5.magicfmaba",
       icon: <Radio className="h-8 w-8" />,
-      iconColor: "text-red-400",
-      bgColor: "bg-red-900/30",
+      iconColor: "text-red-600",
+      bgColor: "bg-red-50",
       features: [
         "High-quality live radio streaming",
-        "Program schedules & updates",
+        "Program schedules and updates",
         "In-app notifications for shows",
         "Lightweight build for low data usage",
       ],
       impact:
-        "With 1k+ downloads and a strong 4.4-star rating, the app has expanded MagicFM's reach, offering listeners a reliable digital radio experience.",
+        "1,000+ downloads with a strong 4.4-star rating, expanding MagicFM's reach to a global audience of listeners.",
       stats: [
         {
           label: "Listeners",
           value: "1,000+",
           icon: <Users className="h-4 w-4" />,
         },
+        { label: "Rating", value: "4.4", icon: <Star className="h-4 w-4" /> },
         {
-          label: "App Rating",
-          value: "4.4",
-          icon: <Star className="h-4 w-4" />,
-        },
-        {
-          label: "Reach",
-          value: "Global",
+          label: "Streams",
+          value: "10k+",
           icon: <Globe className="h-4 w-4" />,
         },
       ],
+      client: "MagicFM",
+      year: "2023",
     },
   ];
 
   const filteredProjects = projects.filter(
-    (project) => activeCategory === "all" || project.category === activeCategory
+    (project) =>
+      activeCategory === "all" || project.category === activeCategory,
   );
 
   const statsOverview = [
-    { value: "6+", label: "Projects Delivered", color: "text-blue-400" },
-    { value: "4.5+", label: "Avg. Rating", color: "text-yellow-400" },
-    { value: "6,650+", label: "Total Downloads", color: "text-green-400" },
-    { value: "100%", label: "Client Satisfaction", color: "text-purple-400" },
+    {
+      value: "6+",
+      label: "Projects Delivered",
+      icon: <Briefcase className="h-5 w-5" />,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+    },
+    {
+      value: "4.5+",
+      label: "Avg. Rating",
+      icon: <Star className="h-5 w-5" />,
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50",
+    },
+    {
+      value: "7,000+",
+      label: "Total Downloads",
+      icon: <Download className="h-5 w-5" />,
+      color: "text-green-600",
+      bgColor: "bg-green-50",
+    },
+    {
+      value: "100%",
+      label: "Client Satisfaction",
+      icon: <Award className="h-5 w-5" />,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
+    },
   ];
 
   return (
-    <Section
-      id="portfolio"
-      className="relative bg-gradient-to-b from-gray-900 to-gray-800"
-    >
-      {/* Manually add title with white text */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4 text-white">Our Portfolio</h2>
-        <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-          Explore our diverse portfolio of mobile applications that have
-          transformed businesses and delighted users across various industries.
-        </p>
-      </div>
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-purple-900/10"></div>
+    <Section id="portfolio" className="relative bg-white">
+      {/* Professional Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-purple-500/5 to-transparent rounded-full blur-3xl"></div>
 
-      {/* Stats Overview */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 relative z-10"
-      >
-        {statsOverview.map((stat, index) => (
-          <div
-            key={index}
-            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 text-center"
-          >
-            <div className={`text-3xl font-bold ${stat.color} mb-2`}>
-              {stat.value}
-            </div>
-            <div className="text-sm text-gray-300">{stat.label}</div>
-          </div>
-        ))}
-      </motion.div>
-
-      {/* Category Filter */}
-      <div className="relative z-10 mb-12">
-        <div className="flex flex-wrap gap-2 justify-center">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                activeCategory === category.id
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-                  : "bg-gray-800 text-gray-300 border border-gray-700 hover:border-blue-500 hover:text-blue-400"
-              }`}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Projects Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-        {filteredProjects.map((project, index) => (
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group"
+            className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium mb-6 border border-blue-100"
           >
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 h-full">
-              {/* Project Header */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-xl ${project.bgColor}`}>
-                    <div className={project.iconColor}>{project.icon}</div>
+            <Briefcase className="h-4 w-4" />
+            <span>Our Portfolio</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
+          >
+            Featured <span className="text-blue-600">Projects</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-600 leading-relaxed"
+          >
+            Explore our diverse portfolio of mobile applications that have
+            transformed businesses and delighted users across various
+            industries.
+          </motion.p>
+        </div>
+
+        {/* Stats Overview */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+        >
+          {statsOverview.map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl p-6 border border-slate-200 hover:border-blue-200 transition-all shadow-sm"
+            >
+              <div className="flex items-center gap-4">
+                <div className={`p-3 rounded-lg ${stat.bgColor}`}>
+                  <div className={stat.color}>{stat.icon}</div>
+                </div>
+                <div>
+                  <div className={`text-2xl font-bold text-slate-900`}>
+                    {stat.value}
                   </div>
-                  <div className="flex items-center gap-2">
-                    {project.rating && (
-                      <div className="flex items-center gap-1 bg-gray-900/50 px-3 py-1 rounded-full">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-medium text-white">
-                          {project.rating}
-                        </span>
-                      </div>
-                    )}
-                    <div className="flex items-center gap-1 bg-gray-900/50 px-3 py-1 rounded-full">
-                      <Download className="h-4 w-4 text-gray-300" />
-                      <span className="text-sm font-medium text-gray-300">
-                        {project.downloads}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  {project.description}
-                </p>
-
-                {/* Category Badge */}
-                <div className="mb-6">
-                  <span className="text-xs font-medium bg-gray-900 text-gray-300 px-3 py-1 rounded-full capitalize">
-                    {project.category}
-                  </span>
-                </div>
-
-                {/* Key Stats */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  {project.stats.map((stat, idx) => (
-                    <div key={idx} className="text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <div className="text-gray-400">{stat.icon}</div>
-                        <div className="text-sm font-semibold text-white">
-                          {stat.value}
-                        </div>
-                      </div>
-                      <div className="text-xs text-gray-400">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Features Preview */}
-                <div className="space-y-2 mb-6">
-                  {project.features.slice(0, 2).map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300">{feature}</span>
-                    </div>
-                  ))}
-                  {project.features.length > 2 && (
-                    <div className="text-sm text-blue-400 font-medium">
-                      +{project.features.length - 2} more features
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Footer with CTA */}
-              <div className="px-6 py-4 bg-gray-900/50 border-t border-gray-700">
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-gray-400">
-                    {project.id} of {filteredProjects.length} projects
-                  </div>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                      project.link === "#"
-                        ? "bg-gray-700 text-gray-400 cursor-not-allowed"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                  >
-                    {project.link === "#" ? "Coming Soon" : "View Project"}
-                    {project.link !== "#" && (
-                      <ExternalLink className="h-4 w-4" />
-                    )}
-                  </a>
+                  <div className="text-sm text-slate-500">{stat.label}</div>
                 </div>
               </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </motion.div>
+
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mb-12"
+        >
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
+                    : "bg-white text-slate-600 border border-slate-200 hover:border-blue-600 hover:text-blue-600"
+                }`}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group"
+              onMouseEnter={() => setSelectedProject(project.id)}
+              onMouseLeave={() => setSelectedProject(null)}
+            >
+              <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-300 h-full">
+                {/* Project Header */}
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`p-3 rounded-xl ${project.bgColor}`}>
+                      <div className={project.iconColor}>{project.icon}</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {project.rating && (
+                        <div className="flex items-center gap-1 bg-slate-100 px-3 py-1 rounded-full">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="text-sm font-medium text-slate-700">
+                            {project.rating}
+                          </span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-1 bg-slate-100 px-3 py-1 rounded-full">
+                        <Download className="h-4 w-4 text-slate-500" />
+                        <span className="text-sm font-medium text-slate-700">
+                          {project.downloads}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <span className="text-xs text-slate-400">
+                      {project.year}
+                    </span>
+                  </div>
+                  <p className="text-slate-600 text-sm mb-4">
+                    {project.description}
+                  </p>
+
+                  {/* Category Badge */}
+                  <div className="mb-4">
+                    <span className="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full capitalize border border-slate-200">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {/* Key Stats */}
+                  <div className="grid grid-cols-3 gap-3 mb-4">
+                    {project.stats.map((stat, idx) => (
+                      <div
+                        key={idx}
+                        className="text-center p-2 bg-slate-50 rounded-lg"
+                      >
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <div className="text-blue-600">{stat.icon}</div>
+                          <div className="text-sm font-semibold text-slate-900">
+                            {stat.value}
+                          </div>
+                        </div>
+                        <div className="text-xs text-slate-500">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Features Preview */}
+                  <div className="space-y-2 mb-4">
+                    {project.features.slice(0, 2).map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-600">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                    {project.features.length > 2 && (
+                      <div className="text-sm text-blue-600 font-medium">
+                        +{project.features.length - 2} more features
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Footer with CTA */}
+                <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="text-xs text-slate-400">Client:</div>
+                      <div className="text-sm font-medium text-slate-700">
+                        {project.client}
+                      </div>
+                    </div>
+                    {project.link !== "#" ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all text-sm font-medium"
+                      >
+                        View Project
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-slate-200 text-slate-500 rounded-lg text-sm font-medium cursor-not-allowed">
+                        Coming Soon
+                        <Clock className="h-4 w-4" />
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Section>
   );

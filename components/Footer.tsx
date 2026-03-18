@@ -3,101 +3,232 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Github,
+  ArrowRight,
+  Smartphone,
+  Palette,
+  Server,
+  Cloud,
+  Rocket,
+} from "lucide-react";
 
 const Footer = () => {
+  const services = [
+    {
+      name: "Mobile App Development",
+      icon: <Smartphone className="h-4 w-4" />,
+    },
+    { name: "UI/UX Design", icon: <Palette className="h-4 w-4" /> },
+    { name: "Backend Engineering", icon: <Server className="h-4 w-4" /> },
+    { name: "Cloud Infrastructure", icon: <Cloud className="h-4 w-4" /> },
+    { name: "MVP Development", icon: <Rocket className="h-4 w-4" /> },
+  ];
+
+  const quickLinks = [
+    { name: "Home", href: "/#home" },
+    { name: "About Us", href: "/#about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Process", href: "/#process" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const legalLinks = [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "NDA Template", href: "/nda" },
+  ];
+
+  const socialLinks = [
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      href: "https://linkedin.com/company/petradot",
+      label: "LinkedIn",
+    },
+    {
+      icon: <Twitter className="h-5 w-5" />,
+      href: "https://twitter.com/petradot",
+      label: "Twitter",
+    },
+    {
+      icon: <Github className="h-5 w-5" />,
+      href: "https://github.com/petradot",
+      label: "GitHub",
+    },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-white border-t border-slate-200 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-5 gap-8 lg:gap-12 mb-12">
+          {/* Company Info - 2 columns */}
+          <div className="md:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <Link href="/#home" className="inline-block">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    P
+                  </div>
+                  <span className="text-xl font-bold text-slate-900">
+                    Petradot
+                  </span>
+                </div>
+              </Link>
+
+              <p className="text-slate-600 leading-relaxed max-w-sm">
+                Building powerful, scalable, and user-friendly mobile
+                applications that solve real business problems and drive growth.
+              </p>
+
+              {/* Contact Info */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-slate-600">
+                  <Mail className="h-5 w-5 text-blue-600" />
+                  <a
+                    href="mailto:info@petradot.com"
+                    className="hover:text-blue-600 transition-colors"
+                  >
+                    info@petradot.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-slate-600">
+                  <Phone className="h-5 w-5 text-blue-600" />
+                  <a
+                    href="tel:+2349161427809"
+                    className="hover:text-blue-600 transition-colors"
+                  >
+                    +234 916 142 7809
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-slate-600">
+                  <MapPin className="h-5 w-5 text-blue-600" />
+                  <span>Lagos, Nigeria</span>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              {/* <div className="flex items-center gap-3">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-slate-100 text-slate-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div> */}
+            </motion.div>
+          </div>
+
+          {/* Quick Links */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-                className="flex-shrink-0"
-              >
-                <Link
-                  href="/#home"
-                  className="text-2xl font-bold text-blue-400 hover:opacity-90 transition-opacity"
-                >
-                  <Image
-                    src="/logo.png"
-                    alt="PTD Logo"
-                    width={160}
-                    height={160}
-                    className="h-12 w-auto"
-                  />
-                </Link>
-              </motion.div>
-            </h3>
-            <p className="text-gray-400">
-              Building powerful, scalable, and user-friendly mobile apps that
-              solve real problems.
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <h4 className="font-semibold text-slate-900 mb-4">Quick Links</h4>
+              <ul className="space-y-3">
+                {quickLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2 group"
+                    >
+                      <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <h4 className="font-semibold text-slate-900 mb-4">Services</h4>
+              <ul className="space-y-3">
+                {services.map((service, index) => (
+                  <li
+                    key={index}
+                    className="text-slate-600 flex items-center gap-2"
+                  >
+                    <span className="text-blue-600">{service.icon}</span>
+                    {service.name}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <h4 className="font-semibold text-slate-900 mb-4">Legal</h4>
+              <ul className="space-y-3">
+                {legalLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2 group"
+                    >
+                      <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="border-t border-slate-200 pt-8 mt-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-slate-500">
+              © {new Date().getFullYear()} Petradot. All rights reserved.
             </p>
-          </div>
 
-          <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>Mobile App Development</li>
-              <li>UI/UX Design</li>
-              <li>Backend Engineering</li>
-              <li>Cloud Infrastructure</li>
-              <li>MVP Development</li>
-            </ul>
+            {/* Trust Badge */}
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-xs text-slate-500">Enterprise Ready</span>
+            </div>
           </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Company</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = "/#about";
-                  }}
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/portfolio"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-              <li>NDA</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} Petradot. All rights reserved.</p>
-          <p className="mt-2">
-            Lagos, Nigeria • info@petradot.com • +234 916 142 7809
-          </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
