@@ -27,19 +27,18 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
     {
       name: "Solutions",
-      href: "#",
+      href: "/",
       submenu: [
-        { name: "What We Build", href: "#what-we-build" },
-        { name: "Our Portfolio", href: "#portfolio" },
+        { name: "What We Build", href: "/ourServices" },
+        { name: "Our Portfolio", href: "/portfolio" },
       ],
     },
-    { name: "Process", href: "#process" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Contact", href: "#contact" },
+    { name: "Process", href: "/#process" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -54,7 +53,7 @@ const Navbar = () => {
             className="flex-shrink-0"
           >
             <Link
-              href="#home"
+              href="/#home"
               className="text-2xl font-bold text-blue-400 hover:opacity-90 transition-opacity"
             >
               <Image

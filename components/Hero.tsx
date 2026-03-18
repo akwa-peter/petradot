@@ -2,6 +2,7 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { ArrowRight, CheckCircle, Sparkles, Shield } from "lucide-react";
+import Link from "next/link";
 import { useEffect } from "react";
 
 const Hero = () => {
@@ -221,51 +222,55 @@ const Hero = () => {
               transition={{ delay: 1.1 }}
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)",
-                }}
-                whileTap={{ scale: 0.98 }}
-                animate={{
-                  background: [
-                    "linear-gradient(to right, #3b82f6, #2563eb)",
-                    "linear-gradient(to right, #2563eb, #1d4ed8)",
-                    "linear-gradient(to right, #3b82f6, #2563eb)",
-                  ],
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="group relative bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-3 font-semibold text-lg"
-              >
-                <span>Start Free Consultation</span>
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)",
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{
+                    background: [
+                      "linear-gradient(to right, #3b82f6, #2563eb)",
+                      "linear-gradient(to right, #2563eb, #1d4ed8)",
+                      "linear-gradient(to right, #3b82f6, #2563eb)",
+                    ],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="group relative bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-3 font-semibold text-lg"
                 >
-                  <ArrowRight className="h-5 w-5" />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></div>
-              </motion.button>
+                  <span>Start Free Consultation</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="h-5 w-5" />
+                  </motion.div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></div>
+                </motion.button>
+              </Link>
 
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  borderColor: "#60a5fa",
-                  color: "#60a5fa",
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="group border-2 border-gray-700 text-gray-300 px-8 py-4 rounded-xl hover:border-blue-500 hover:shadow-lg transition-all duration-300 font-semibold text-lg hover:text-blue-400"
-              >
-                <span className="relative">
-                  View Our Work
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </span>
-              </motion.button>
+              <Link href="/portfolio">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    borderColor: "#60a5fa",
+                    color: "#60a5fa",
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group border-2 border-gray-700 text-gray-300 px-8 py-4 rounded-xl hover:border-blue-500 hover:shadow-lg transition-all duration-300 font-semibold text-lg hover:text-blue-400"
+                >
+                  <span className="relative">
+                    Portfolio
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </span>
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
 

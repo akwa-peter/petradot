@@ -18,7 +18,7 @@ const Footer = () => {
                 className="flex-shrink-0"
               >
                 <Link
-                  href="#home"
+                  href="/#home"
                   className="text-2xl font-bold text-blue-400 hover:opacity-90 transition-opacity"
                 >
                   <Image
@@ -57,55 +57,27 @@ const Footer = () => {
                   className="text-gray-400 hover:text-blue-400 transition-colors"
                   onClick={(e) => {
                     e.preventDefault();
-                    document
-                      .getElementById("about")
-                      ?.scrollIntoView({ behavior: "smooth" });
+                    window.location.href = "/#about";
                   }}
                 >
                   About Us
                 </a>
               </li>
               <li>
-                <a
-                  href="#projects"
+                <Link
+                  href="/portfolio"
                   className="text-gray-400 hover:text-blue-400 transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("portfolio")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
                 >
                   Portfolio
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#pricing"
+                <Link
+                  href="/contact"
                   className="text-gray-400 hover:text-blue-400 transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("pricing")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
