@@ -44,23 +44,23 @@ const Footer = () => {
     { name: "NDA Template", href: "/nda" },
   ];
 
-  const socialLinks = [
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      href: "https://linkedin.com/company/petradot",
-      label: "LinkedIn",
-    },
-    {
-      icon: <Twitter className="h-5 w-5" />,
-      href: "https://twitter.com/petradot",
-      label: "Twitter",
-    },
-    {
-      icon: <Github className="h-5 w-5" />,
-      href: "https://github.com/petradot",
-      label: "GitHub",
-    },
-  ];
+  // const socialLinks = [
+  //   {
+  //     icon: <Linkedin className="h-5 w-5" />,
+  //     href: "https://linkedin.com/company/petradot",
+  //     label: "LinkedIn",
+  //   },
+  //   {
+  //     icon: <Twitter className="h-5 w-5" />,
+  //     href: "https://twitter.com/petradot",
+  //     label: "Twitter",
+  //   },
+  //   {
+  //     icon: <Github className="h-5 w-5" />,
+  //     href: "https://github.com/petradot",
+  //     label: "GitHub",
+  //   },
+  // ];
 
   return (
     <footer className="bg-white border-t border-slate-200 pt-16 pb-8">
@@ -75,15 +75,17 @@ const Footer = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <Link href="/#home" className="inline-block">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                    P
-                  </div>
-                  <span className="text-xl font-bold text-slate-900">
-                    Petradot
-                  </span>
-                </div>
+              <Link
+                href="/#home"
+                className="text-2xl font-bold text-blue-400 hover:opacity-90 transition-opacity"
+              >
+                <Image
+                  src="/logo.png"
+                  alt="PTD Logo"
+                  width={160}
+                  height={160}
+                  className="h-12 w-auto"
+                />
               </Link>
 
               <p className="text-slate-600 leading-relaxed max-w-sm">

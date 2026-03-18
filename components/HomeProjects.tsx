@@ -2,40 +2,28 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Section from "./Section";
+import Link from "next/link";
 import {
   Building,
   Heart,
   CreditCard,
-  Radio,
   Star,
   Download,
   ExternalLink,
   TrendingUp,
   Shield,
   Users,
-  Globe,
   CheckCircle,
   Briefcase,
   Award,
   Clock,
-  Home,
-  Zap,
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 
-const Projects = () => {
+const HomeProjects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-
-  const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "finance", label: "FinTech" },
-    { id: "health", label: "HealthTech" },
-    { id: "realestate", label: "Real Estate" },
-    { id: "productivity", label: "Productivity" },
-    { id: "entertainment", label: "Entertainment" },
-  ];
 
   const projects = [
     {
@@ -162,91 +150,6 @@ const Projects = () => {
       client: "StableDoc",
       year: "2023",
     },
-    {
-      id: 4,
-      title: "Batimus",
-      category: "productivity",
-      description: "Personal habit assistant for building consistency",
-      overview:
-        "An elegant habit assistant that helps users build consistency through daily routines, progress tracking, and motivational prompts.",
-      rating: null,
-      downloads: "100+",
-      link: "https://play.google.com/store/apps/details?id=com.batimus.batimus",
-      icon: <TrendingUp className="h-8 w-8" />,
-      iconColor: "text-orange-600",
-      bgColor: "bg-orange-50",
-      image: "/batimus.png",
-      features: [
-        "Habit creation and daily routine planning",
-        "Progress tracking with visual analytics",
-        "Smart reminders and motivational prompts",
-        "Minimalistic, distraction-free design",
-      ],
-      impact:
-        "100+ organic downloads with a growing community of users improving their lifestyle through better habits and daily consistency.",
-      stats: [
-        {
-          label: "Active Users",
-          value: "100+",
-          icon: <Users className="h-4 w-4" />,
-        },
-        {
-          label: "Habits Tracked",
-          value: "1k+",
-          icon: <TrendingUp className="h-4 w-4" />,
-        },
-        {
-          label: "Retention",
-          value: "75%",
-          icon: <Award className="h-4 w-4" />,
-        },
-      ],
-      client: "Batimus",
-      year: "2024",
-    },
-
-    {
-      id: 5,
-      title: "LindaSalesPro",
-      category: "realestate",
-      description: "Property management platform for real estate agents",
-      overview:
-        "A comprehensive property sales and management app enabling agents to organize listings, track leads, and manage real estate operations digitally.",
-      rating: 5.0,
-      downloads: "50+",
-      link: "https://play.google.com/store/apps/details?id=online.priceplan",
-      icon: <Home className="h-8 w-8" />,
-      iconColor: "text-purple-600",
-      bgColor: "bg-purple-50",
-      image: "/lindasalespro.webp",
-      features: [
-        "Property listing and management system",
-        "Customer lead tracking with analytics",
-        "Offline-first architecture for field agents",
-        "Document management and e-signatures",
-      ],
-      impact:
-        "5-star rated app that has empowered agents to work more efficiently, closing deals 40% faster and modernizing real estate sales operations.",
-      stats: [
-        {
-          label: "Agent Rating",
-          value: "5.0",
-          icon: <Star className="h-4 w-4" />,
-        },
-        {
-          label: "Properties",
-          value: "100+",
-          icon: <Home className="h-4 w-4" />,
-        },
-        {
-          label: "Efficiency",
-          value: "40%↑",
-          icon: <Zap className="h-4 w-4" />,
-        },
-      ],
-      client: "LindaSalesPro",
-      year: "2023",
-    },
   ];
 
   const filteredProjects = projects.filter(
@@ -356,31 +259,6 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mb-12"
-        >
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
-                    : "bg-white text-slate-600 border border-slate-200 hover:border-blue-600 hover:text-blue-600"
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
@@ -390,7 +268,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="relative h-[550px] rounded-2xl overflow-hidden cursor-pointer group"
+              className="relative h-[500px] rounded-2xl overflow-hidden cursor-pointer group"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
@@ -401,52 +279,34 @@ const Projects = () => {
                 >
                   {/* Placeholder for product image - replace with actual images */}
                   <div className="text-center">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={200}
-                      height={200}
-                      className="mx-auto rounded-lg"
-                    />
+                    <p className="text-slate-400 text-sm">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={200}
+                        height={200}
+                        className="mx-auto rounded-lg"
+                      />
+                    </p>
                   </div>
                 </div>
-                {/* Gradient overlay for better text visibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               </div>
 
               {/* Project Title - Always visible at bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                 <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
-                <p className="text-white/80 text-sm line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Quick stats row always visible */}
-                <div className="flex items-center gap-4 mt-3">
-                  {project.rating && (
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">
-                        {project.rating}
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-1">
-                    <Download className="h-4 w-4 text-white/80" />
-                    <span className="text-sm font-medium">
-                      {project.downloads}
-                    </span>
-                  </div>
-                </div>
+                <p className="text-white/80 text-sm">{project.description}</p>
               </div>
 
               {/* Hover Card - Appears on hover */}
               <AnimatePresence>
                 {hoveredProject === project.id && (
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.2 }}
                     className="absolute inset-0 bg-white/95 backdrop-blur-sm p-6 overflow-y-auto z-20"
                   >
@@ -455,18 +315,30 @@ const Projects = () => {
                       <div className={`p-3 rounded-xl ${project.bgColor}`}>
                         <div className={project.iconColor}>{project.icon}</div>
                       </div>
-                      <span className="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded-full">
-                        {project.year}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {project.rating && (
+                          <div className="flex items-center gap-1 bg-slate-100 px-3 py-1 rounded-full">
+                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            <span className="text-sm font-medium text-slate-700">
+                              {project.rating}
+                            </span>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-1 bg-slate-100 px-3 py-1 rounded-full">
+                          <Download className="h-4 w-4 text-slate-500" />
+                          <span className="text-sm font-medium text-slate-700">
+                            {project.downloads}
+                          </span>
+                        </div>
+                      </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
-                      {project.title}
-                    </h3>
-
-                    <div className="mb-3">
+                    <div className="flex items-center justify-between mb-3">
                       <span className="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full capitalize border border-slate-200">
                         {project.category}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        {project.year}
                       </span>
                     </div>
 
@@ -496,9 +368,6 @@ const Projects = () => {
 
                     {/* Features */}
                     <div className="space-y-2 mb-4">
-                      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                        Key Features
-                      </p>
                       {project.features.slice(0, 3).map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-2">
                           <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
@@ -516,13 +385,13 @@ const Projects = () => {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all text-sm font-medium"
+                          className="inline-flex items-center justify-center gap-2 w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all text-sm font-medium"
                         >
-                          View on Play Store
+                          View Project
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       ) : (
-                        <span className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-slate-200 text-slate-500 rounded-lg text-sm font-medium cursor-not-allowed">
+                        <span className="inline-flex items-center justify-center gap-2 w-full px-4 py-2 bg-slate-200 text-slate-500 rounded-lg text-sm font-medium cursor-not-allowed">
                           Coming Soon
                           <Clock className="h-4 w-4" />
                         </span>
@@ -534,9 +403,26 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View More Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="flex justify-center mt-16"
+        >
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+          >
+            View More Projects
+            <ExternalLink className="h-5 w-5" />
+          </Link>
+        </motion.div>
       </div>
     </Section>
   );
 };
 
-export default Projects;
+export default HomeProjects;

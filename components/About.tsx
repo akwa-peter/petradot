@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import {
   Users,
-  Sparkles,
-  Shield,
   Server,
   Heart,
   Lightbulb,
@@ -139,7 +137,6 @@ const About = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium mb-6 border border-blue-100"
           >
-            <Sparkles className="h-4 w-4" />
             <span>About Our Company</span>
           </motion.div>
 
@@ -174,7 +171,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {achievements.map((stat, index) => (
             <div
@@ -188,186 +185,6 @@ const About = () => {
             </div>
           ))}
         </motion.div>
-
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Column - Company Story & Values */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-10"
-          >
-            {/* Company Story */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-900">Our Story</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Founded in 2016, we started with a simple mission: build
-                exceptional mobile experiences that solve real problems. Today,
-                we&apos;re a team of 50+ passionate developers, designers, and
-                strategists working with clients from early-stage startups to
-                Fortune 500 companies.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                We believe in the power of mobile technology to transform
-                businesses. Whether it&apos;s a consumer app reaching millions
-                or an enterprise solution streamlining operations, we approach
-                every project with the same level of dedication and technical
-                excellence.
-              </p>
-            </div>
-
-            {/* Core Values Grid */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-slate-900">
-                Our Core Values
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {coreValues.map((value, index) => (
-                  <motion.div
-                    key={value.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className={`p-2 rounded-lg ${value.bgColor}`}>
-                        <div className={value.iconColor}>{value.icon}</div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-slate-900 mb-1">
-                          {value.title}
-                        </h4>
-                        <p className="text-sm text-slate-500 leading-relaxed">
-                          {value.description}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Industries We Serve */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-              <h4 className="font-semibold text-slate-900 mb-4">
-                Industries We Serve
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {industries.map((industry, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1.5 bg-white text-slate-600 text-sm rounded-lg border border-slate-200"
-                  >
-                    {industry}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Technical Expertise */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-10"
-          >
-            {/* Technical Expertise */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900">
-                    Technical Expertise
-                  </h3>
-                  <p className="text-sm text-slate-500 mt-1">
-                    Our core competencies
-                  </p>
-                </div>
-                <div className="bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1.5 rounded-lg">
-                  Industry Leading
-                </div>
-              </div>
-
-              <div className="space-y-5">
-                {expertise.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="space-y-2"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`p-1.5 rounded-md ${skill.bgColor}`}>
-                          <div className={skill.iconColor}>{skill.icon}</div>
-                        </div>
-                        <span className="text-sm font-medium text-slate-700">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span className="text-sm font-semibold text-slate-500">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden ml-8">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        className={`h-full ${skill.bgColor} rounded-full`}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Development Process */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">
-                Our Development Process
-              </h3>
-              <div className="space-y-4">
-                {[
-                  {
-                    step: "Discovery & Strategy",
-                    desc: "Understanding your business goals and user needs",
-                  },
-                  {
-                    step: "Design & Prototyping",
-                    desc: "Creating intuitive, engaging user experiences",
-                  },
-                  {
-                    step: "Development & Testing",
-                    desc: "Building with quality and scalability in mind",
-                  },
-                  {
-                    step: "Deployment & Support",
-                    desc: "Launch and ongoing optimization",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-semibold text-sm">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-slate-900">
-                        {item.step}
-                      </h4>
-                      <p className="text-sm text-slate-500">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
       </div>
     </Section>
   );
