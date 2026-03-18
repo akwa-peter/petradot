@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[92214,["/_next/static/chunks/2d54eaf4ccd220d0.js","/_next/static/chunks/d205895be8965d8c.js"],"ViewportBoundary"]
+3:I[92214,["/_next/static/chunks/2d54eaf4ccd220d0.js","/_next/static/chunks/d205895be8965d8c.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[72624,["/_next/static/chunks/2d54eaf4ccd220d0.js","/_next/static/chunks/d205895be8965d8c.js"],"IconMark"]
+0:{"buildId":"pG5hsAy-cgvulkYd-ea6q","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Petradot - Mobile App Development Company"}],["$","meta","1",{"name":"description","content":"Build powerful, scalable, and user-friendly mobile apps with Petradot. We help startups, SMEs, and enterprises turn ideas into polished digital products."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
