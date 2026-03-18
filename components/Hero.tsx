@@ -35,7 +35,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative pt-28 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
     >
       {/* Professional Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -44,26 +44,15 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#3b82f610,transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#8b5cf610,transparent_50%)]"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
         <div className="flex justify-center">
-          <div className="w-full max-w-3xl text-center">
+          <div className="w-full max-w-4xl text-center">
             {/* Left Content - Professional Tech Copy */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              {/* Enterprise Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium mb-8 border border-blue-100 mx-auto"
-                whileHover={{ scale: 1.02 }}
-              >
-                <span>Enterprise Mobile Development</span>
-              </motion.div>
-
               {/* Professional Heading */}
               <div className="overflow-hidden">
                 <motion.h1
@@ -107,7 +96,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
-                className="mt-8 text-xl text-slate-600 leading-relaxed max-w-7xl mx-auto"
+                className="mt-8 text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto"
               >
                 We engineer high-performance mobile applications for Fortune 500
                 companies and high-growth startups. From concept to scale, we
@@ -169,6 +158,31 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Optional: Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-xs text-slate-400">Scroll to explore</span>
+          <div className="w-5 h-8 border-2 border-slate-300 rounded-full flex justify-center">
+            <motion.div
+              animate={{
+                y: [0, 12, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="w-1 h-2 bg-blue-600 rounded-full mt-2"
+            />
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 };
