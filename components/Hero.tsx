@@ -59,7 +59,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 leading-tight tracking-tight"
+                  className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 leading-tight tracking-tight"
                 >
                   <motion.span
                     className="block"
@@ -96,7 +96,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
-                className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0"
+                className="mt-4 sm:mt-6 md:mt-8 text-lg sm:text-lg md:text-xl lg:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0"
               >
                 We engineer high-performance mobile applications for Fortune 500
                 companies and high-growth startups. From concept to scale, we
