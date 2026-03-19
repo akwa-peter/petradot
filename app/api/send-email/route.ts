@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         from: "noreply@petradot.com",
-        to: "info@petradot.com",
+        to: "hello@petradot.com",
         reply_to: email,
         subject: `New Contact Form Submission from ${name}`,
         html: `
