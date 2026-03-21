@@ -105,8 +105,8 @@ const About = () => {
 
   const achievements = [
     { value: "8+", label: "Years in Business", icon: Calendar },
-    { value: "150+", label: "Apps Delivered", icon: Smartphone },
-    { value: "50+", label: "Team Members", icon: Users },
+    { value: "8+", label: "Apps Delivered", icon: Smartphone },
+    { value: "20+", label: "Team Members", icon: Users },
     { value: "98%", label: "Client Retention", icon: TrendingUp },
   ];
 

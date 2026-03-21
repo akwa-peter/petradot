@@ -1,14 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import {
-  ArrowRight,
-  Shield,
-  Smartphone,
-  Globe,
-  Zap,
-  Award,
-} from "lucide-react";
+import { ArrowRight, Shield, Globe, Award } from "lucide-react";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -24,13 +17,6 @@ const Hero = () => {
     };
     sequence();
   }, [controls]);
-
-  const stats = [
-    { value: "50+", label: "Apps Delivered", icon: Smartphone },
-    { value: "99.9%", label: "Uptime SLA", icon: Award },
-    { value: "4.8★", label: "App Store Rating", icon: Zap },
-    { value: "10M+", label: "Downloads", icon: Globe },
-  ];
 
   return (
     <section
@@ -77,7 +63,7 @@ const Hero = () => {
                   >
                     <span className="relative inline-block">
                       <span className="relative z-10 text-blue-600">
-                        That Mean Business
+                        That Grow Your Business
                       </span>
                       <motion.span
                         className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-0.5 md:h-1 bg-blue-200 rounded-full mx-auto"
@@ -98,10 +84,19 @@ const Hero = () => {
                 transition={{ delay: 0.9 }}
                 className="mt-4 sm:mt-6 md:mt-8 text-lg sm:text-lg md:text-xl lg:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0"
               >
-                We engineer high-performance mobile applications for Fortune 500
-                companies and high-growth startups. From concept to scale, we
-                deliver robust, secure, and user-centric solutions that drive
-                ROI.
+                We design and build scalable mobile applications for startups
+                and enterprises, from MVP to full-scale platforms that drive
+                user engagement and revenue.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9 }}
+                className="mt-1 sm:mt-1 md:mt-1 text-sm sm:text-sm md:text-lg lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0"
+              >
+                {" "}
+                From idea to launch, we handle strategy, design, development,
+                and scaling.
               </motion.p>
 
               {/* Trust Indicators - Responsive grid */}
@@ -146,7 +141,7 @@ const Hero = () => {
                   </motion.button>
                 </Link>
 
-                <Link href="/case-studies" className="w-full sm:w-auto">
+                <Link href="/portfolio" className="w-full sm:w-auto">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

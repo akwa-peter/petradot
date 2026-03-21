@@ -35,7 +35,7 @@ const HomeProjects = () => {
       overview:
         "A secure, intuitive microfinance banking app that gives customers seamless access to digital banking services. Built to meet strict financial services standards.",
       rating: 4.2,
-      downloads: "5,000+",
+      downloads: "25,000+",
       link: "https://play.google.com/store/apps/details?id=com.mfb.unitedcapital",
       icon: <Building className="h-8 w-8" />,
       iconColor: "text-blue-600",
@@ -76,9 +76,9 @@ const HomeProjects = () => {
       description: "Digital card issuing and purchasing platform",
       overview:
         "A digital card issuing platform that makes buying prepaid and virtual cards fast, secure, and convenient with a frictionless checkout experience.",
-      rating: null,
-      downloads: "Coming Soon",
-      link: "#",
+      rating: 4.2,
+      downloads: "25,000+",
+      link: "https://play.google.com/store/apps/details?id=com.julupay.app.julupay&pcampaignid=web_share",
       icon: <CreditCard className="h-8 w-8" />,
       iconColor: "text-indigo-600",
       bgColor: "bg-green-700",
@@ -109,7 +109,7 @@ const HomeProjects = () => {
         },
       ],
       client: "JuluPay",
-      year: "2024",
+      year: "2025",
     },
     {
       id: 3,
@@ -120,7 +120,7 @@ const HomeProjects = () => {
       overview:
         "A telemedicine and medical concierge platform that provides fast, convenient healthcare access through video consultations and digital health records.",
       rating: 5.0,
-      downloads: "500+",
+      downloads: "25,000+",
       link: "https://play.google.com/store/search?q=stabledoc&c=apps",
       icon: <Heart className="h-8 w-8" />,
       iconColor: "text-green-600",
@@ -159,7 +159,7 @@ const HomeProjects = () => {
 
   const statsOverview = [
     {
-      value: "6+",
+      value: "8+",
       label: "Projects Delivered",
       icon: <Briefcase className="h-5 w-5" />,
       color: "text-blue-600",
@@ -173,7 +173,7 @@ const HomeProjects = () => {
       bgColor: "bg-yellow-50",
     },
     {
-      value: "7,000+",
+      value: "25,000+",
       label: "Total Downloads",
       icon: <Download className="h-5 w-5" />,
       color: "text-green-600",
