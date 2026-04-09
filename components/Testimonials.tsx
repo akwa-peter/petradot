@@ -23,73 +23,55 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote:
-        "Petradot transformed our complex business requirements into a seamless mobile experience. Their technical expertise and attention to detail exceeded our expectations. The app has driven a 40% increase in user engagement and become our primary revenue channel.",
-      author: "Sarah Johnson",
-      position: "CEO, TechSolutions Inc.",
+        "Petradot helped us build Batimus mobile app, our habit development app and supported us during the deployment and after launch. It was a joy working with the team.",
+      author: "Eze Sunday Eze",
+      position: "Founder/CEO",
       rating: 5,
-      company: "TechSolutions Inc.",
+      company: "Batimus",
       logo: <Building className="h-6 w-6" />,
-      metrics: "Revenue +65%",
-      metricLabel: "ROI Increase",
+
       imageColor: "bg-blue-600",
       bgColor: "bg-blue-50",
       textColor: "text-blue-600",
     },
     {
       quote:
-        "Working with Petradot was a game-changer for our startup. They delivered a polished MVP in just 8 weeks that impressed our investors. Their agile approach and transparent communication made the entire process smooth and efficient.",
-      author: "Michael Chen",
-      position: "Founder & CTO, InnovateStart",
+        "Their team demonstrated exceptional speed, technical expertise, and a deep understanding of our vision. What impressed us most was not just how fast they worked, but how committed they were to delivering a complete, reliable solution. They took ownership of the project, resolved long-standing issues, and successfully brought StableDoc to launch.",
+      author: "Dr. Isaac",
+      position: "Founder & CEO",
       rating: 5,
-      company: "InnovateStart",
+      company: "StableDoc",
       logo: <Globe className="h-6 w-6" />,
-      metrics: "Time to Market -50%",
-      metricLabel: "Faster Launch",
+
       imageColor: "bg-purple-600",
       bgColor: "bg-purple-50",
       textColor: "text-purple-600",
     },
     {
       quote:
-        "The team at Petradot demonstrated exceptional professionalism from discovery to deployment. Their solution architecture was robust, scalable, and future-proof. Post-launch support has been outstanding with 99.9% uptime guaranteed.",
-      author: "David Rodriguez",
-      position: "Digital Transformation Lead, GlobalCorp",
+        "What truly stood out to me was Petradot’s ownership of the project, driving regular standups, keeping us informed, and ensuring consistent progress at every stage. I sincerely appreciate their commitment and reliability throughout this implementation. Their partnership has given us confidence in our platform’s future, and I look forward to continuing to work with them to maintain and grow the application.",
+      author: "Obiajulu Nkwonta",
+      position: "Founder & CEO",
       rating: 5,
-      company: "GlobalCorp",
+      company: "JuluPay",
       logo: <Award className="h-6 w-6" />,
-      metrics: "99.9% Uptime",
-      metricLabel: "Enterprise SLA",
+
       imageColor: "bg-green-600",
       bgColor: "bg-green-50",
       textColor: "text-green-600",
     },
     {
       quote:
-        "As a healthcare provider, we needed a HIPAA-compliant solution with strict security requirements. Petradot delivered beyond expectations with meticulous attention to compliance and security protocols, earning us complete confidence from our patients.",
-      author: "Dr. Emily Watson",
-      position: "Medical Director, HealthFirst Systems",
+        "Partnering with Petradot to build Chooya from the ground up has been one of our best strategic decisions. Their team became true partners, successfully delivering all Chooya products, including LindaSales Pro, with strong professionalism and technical expertise. Their reliability and commitment have helped us scale faster and serve our users better. I value this partnership and look forward to continuing to work together as we grow in the years ahead.",
+      author: "Igwe Uguru",
+      position: "Founder & CEO/Co-founder, RAD5 Tech Hub",
       rating: 5,
-      company: "HealthFirst Systems",
+      company: "Chooya",
       logo: <Shield className="h-6 w-6" />,
-      metrics: "100% Compliance",
-      metricLabel: "HIPAA Certified",
+
       imageColor: "bg-teal-600",
       bgColor: "bg-teal-50",
       textColor: "text-teal-600",
-    },
-    {
-      quote:
-        "The mobile app developed by Petradot has revolutionized our e-commerce operations. Their understanding of user behavior and conversion optimization resulted in a 35% increase in conversion rate within the first three months.",
-      author: "James Wilson",
-      position: "E-commerce Director, RetailPro",
-      rating: 5,
-      company: "RetailPro",
-      logo: <TrendingUp className="h-6 w-6" />,
-      metrics: "Conversion +35%",
-      metricLabel: "Revenue Growth",
-      imageColor: "bg-orange-600",
-      bgColor: "bg-orange-50",
-      textColor: "text-orange-600",
     },
   ];
 
@@ -238,19 +220,6 @@ const Testimonials = () => {
                   </div>
 
                   {/* Key Results */}
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-1 h-12 bg-blue-600 rounded-full"></div>
-                      <div>
-                        <div className="text-3xl font-bold text-slate-900">
-                          {testimonials[currentIndex].metrics}
-                        </div>
-                        <div className="text-sm text-slate-500">
-                          {testimonials[currentIndex].metricLabel}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
