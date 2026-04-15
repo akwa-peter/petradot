@@ -62,7 +62,7 @@ const Projects = () => {
       stats: [
         {
           label: "Active Users",
-          value: "5,000+",
+          value: "20,000+",
           icon: <Users className="h-4 w-4" />,
         },
         {
