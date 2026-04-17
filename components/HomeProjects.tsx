@@ -34,7 +34,7 @@ const HomeProjects = () => {
         "Modern microfinance banking application for seamless digital banking access",
       overview:
         "A secure, intuitive microfinance banking app that gives customers seamless access to digital banking services. Built to meet strict financial services standards.",
-      rating: 4.2,
+      rating: 4.6,
       downloads: "25,000+",
       link: "https://play.google.com/store/apps/details?id=com.mfb.unitedcapital",
       icon: <Building className="h-8 w-8" />,
@@ -48,7 +48,7 @@ const HomeProjects = () => {
         "Real-time banking operations with scalable infrastructure",
       ],
       impact:
-        "5,000+ active users with a strong 4.2-star rating, demonstrating high user trust and consistent performance. Successfully digitized banking operations, increasing customer engagement and retention.",
+        "20,000+ active users with a strong 4.6-star rating, demonstrating high user trust and consistent performance. Successfully digitized banking operations, increasing customer engagement and retention.",
       stats: [
         {
           label: "Active Users",
@@ -57,12 +57,12 @@ const HomeProjects = () => {
         },
         {
           label: "App Rating",
-          value: "4.2",
+          value: "4.6",
           icon: <Star className="h-4 w-4" />,
         },
         {
           label: "Transactions",
-          value: "10k+",
+          value: "1 trillion+",
           icon: <TrendingUp className="h-4 w-4" />,
         },
       ],
