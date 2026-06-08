@@ -54,8 +54,8 @@ const Contact = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       title: "Email",
-      value: "info@petradot.com",
-      href: "mailto:info@petradot.com",
+      value: "hello@petradot.com",
+      href: "mailto:hello@petradot.com",
       description: "24/7 support available",
     },
     {

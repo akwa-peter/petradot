@@ -101,7 +101,7 @@ const Footer = () => {
                     href="mailto:info@petradot.com"
                     className="hover:text-blue-600 transition-colors"
                   >
-                    info@petradot.com
+                    hello@petradot.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-slate-600">
